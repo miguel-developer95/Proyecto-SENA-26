@@ -13,6 +13,7 @@ RF 3.1	Registro de Compras: Captura de código, fecha, proveedor, productos, can
 RF 3.2	Registro de Proveedores: Almacenar NIT, nombre, dirección, teléfono de contacto, correo, estado y fecha de registro.
 RF 3.3	Historial de Compras: Consulta cronológica de compras con detalle de proveedor, productos y valores.
 RF 3.4	Modificación de Compras: Mantener trazabilidad de cambios con fecha y responsable.
+
 RF 4.1	El sistema generará informes que muestren la ganancia real (Precio Venta - Precio Compra) por producto o categoría.
 RF 4.2	El sistema identificará los productos con mayor rotación (los más vendidos) y los que no se mueven.
 RF 4.3	El sistema permitirá definir qué acciones puede hacer un "Vendedor" (solo ventas) frente a un "Administrador" (todo).

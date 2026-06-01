@@ -11,3 +11,17 @@ function App() {
 
 export default App;
 
+const [User, setUser] = useState(null);
+
+const handleLogout = () => {
+  setUser(null);
+};
+
+<main>
+  
+  {User ? (
+    <Login onLoginSucess={setUser} / >
+  ) : (
+    <div>
+
+

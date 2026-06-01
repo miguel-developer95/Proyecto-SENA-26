@@ -47,8 +47,8 @@ function Login() {
       <div className="login-card">
 
         <div className="brand">
-          <div className="brand-icon">K</div>
-          <span className="brand-name">Ke-rico</span>
+          <div className="brand-icon">T</div>
+          <span className="brand-name">Tentaciones Marlly</span>
         </div>
 
         <p className="login-heading">Bienvenido de nuevo</p>

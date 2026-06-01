@@ -32,12 +32,11 @@ function Login() {
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
-        // navigate("/dashboard");
       } else {
-        setError(data.message || "Credenciales inválidas");
+        setError(data.message || "Credenciales invalidas");
       }
     } catch (err) {
-      setError("Error de conexión. Intenta de nuevo.");
+      setError("Error de conexion. Intenta de nuevo.");
     } finally {
       setLoading(false);
     }
@@ -46,5 +45,66 @@ function Login() {
   return (
     <div className="login-wrap">
       <div className="login-card">
+
         <div className="brand">
-          <div className="brand-icon">🍽️</div>
+          <div className="brand-icon">K</div>
+          <span className="brand-name">Ke-rico</span>
+        </div>
+
+        <p className="login-heading">Bienvenido de nuevo</p>
+        <p className="login-sub">Ingresa tus credenciales para continuar</p>
+
+        {error && (
+          <div className="error-msg">
+            <span>{error}</span>
+          </div>
+        )}
+
+        <div className="field">
+          <label htmlFor="email">Correo electronico</label>
+          <div className="input-wrap">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="correo@ejemplo.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="field">
+          <label htmlFor="password">Contrasena</label>
+          <div className="input-wrap">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              minLength={6}
+            />
+          </div>
+        </div>
+
+        <button
+          className="btn-submit"
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? "Cargando..." : "Ingresar"}
+        </button>
+
+        <hr className="divider" />
+        <p className="footer-text">Sistema de registro e inventario - SENA 2026</p>
+
+      </div>
+    </div>
+  );
+}
+
+export default Login;

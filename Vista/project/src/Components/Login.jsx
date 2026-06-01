@@ -10,37 +10,31 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  setError("");
 
-    if (!formData.email || !formData.password) {
-      setError("Por favor completa todos los campos.");
-      return;
-    }
+  if (!formData.email || !formData.password) {
+    setError("Por favor completa todos los campos.");
+    return;
+  }
 
-    setLoading(true);
+  // Credenciales estáticas
+  const emailCorrecto = "admin@tentaciones.com";
+  const passwordCorrecta = "123456";
 
-    try {
-      const response = await fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem("token", data.token);
-      } else {
-        setError(data.message || "Credenciales invalidas");
-      }
-    } catch (err) {
-      setError("Error de conexion. Intenta de nuevo.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (
+    formData.email === emailCorrecto &&
+    formData.password === passwordCorrecta
+  ) {
+    <h1>Inicio de sesión exitoso</h1>
+    
+    // Aquí después podrás navegar al dashboard
+    // navigate("/dashboard");
+  } else {
+    setError("Correo o contraseña incorrectos.");
+  }
+};
 
   return (
     <div className="login-wrap">

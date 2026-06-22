@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleChange = (e) => {
@@ -31,6 +33,7 @@ function Login() {
     formData.password === passwordCorrecta
   ) {
     login({ email: formData.email, rol: "admin" });
+    navigate("/dashboard");
     
     // Aquí después podrás navegar al dashboard
     // navigate("/dashboard");

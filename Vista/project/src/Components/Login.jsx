@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +30,7 @@ function Login() {
     formData.email === emailCorrecto &&
     formData.password === passwordCorrecta
   ) {
-    <h1>Inicio de sesión exitoso</h1>
+    login({ email: formData.email, rol: "admin" });
     
     // Aquí después podrás navegar al dashboard
     // navigate("/dashboard");

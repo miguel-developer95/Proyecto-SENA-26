@@ -1,24 +1,30 @@
-import { useState } from "react";
-import Login from "./components/Login";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Login from "./Components/Login";
+import Dashboard from "./Pages/Dashboard";
+
+function RutaProtegida({ children }) {
+  const { usuario } = useAuth();
+  return usuario ? children : <Navigate to="/" />;
+}
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  const handleLogout = () => {
-    setUser(null);
-  };
-
   return (
-    <main>
-      {user ? (
-        <div>
-          <h1>Bienvenido, {user.nombre}</h1>
-          <button onClick={handleLogout}>Cerrar sesión</button>
-        </div>
-      ) : (
-        <Login onLoginSuccess={setUser} />
-      )}
-    </main>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RutaProtegida>
+                <Dashboard />
+              </RutaProtegida>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

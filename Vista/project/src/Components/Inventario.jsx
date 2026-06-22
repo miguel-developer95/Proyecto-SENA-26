@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 
+
 // ── Datos iniciales de ejemplo ──────────────────────────────────────────────
 const PRODUCTOS_INICIALES = [
   { id: 1, nombre: "Arroz x 500g",  categoria: "Granos",      codigoBarras: "770100001", precioCompra: 1800,  precioVenta: 2500,  stock: 120, stockMinimo: 20 },

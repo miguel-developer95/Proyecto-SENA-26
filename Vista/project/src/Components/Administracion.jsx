@@ -1,4 +1,10 @@
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+
+function Inventario() {
+  const { usuario } = useAuth();
+  // Ya tienes acceso al usuario logueado
+}
 
 export default function UsersPage() {
   const [users, setUsers] = useState([

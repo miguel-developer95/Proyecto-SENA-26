@@ -45,7 +45,7 @@ function Dashboard() {
     <div style={estilos.pagina}>
       <div style={estilos.header}>
         <div>
-          <h1 style={estilos.titulo}>Sistema Ke-rico</h1>
+          <h1 style={estilos.titulo}>Sistema Tentaciones Marlly</h1>
           <p style={estilos.sub}>Tentaciones Marlly</p>
         </div>
         <div style={estilos.headerDerecha}>

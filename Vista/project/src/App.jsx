@@ -3,6 +3,9 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import Login from "./Components/Login";
 import Dashboard from "./Pages/Dashboard";
 import Administracion from "./Components/Administracion";
+import Compra from "./Components/Compra";
+import Inventario from "./Components/Inventario";
+import Venta from "./Components/Venta";
 
 function RutaProtegida({ children }) {
   const { usuario } = useAuth();
@@ -30,7 +33,31 @@ function App() {
                 <Administracion />
               </RutaProtegida>
             }
-          />  
+          />
+          <Route 
+            path="/compras" 
+            element={
+            <RutaProtegida>
+              <Compra />
+            </RutaProtegida>
+            } 
+          />
+          <Route 
+            path="/inventario" 
+            element={
+            <RutaProtegida>
+              <Inventario />
+            </RutaProtegida>
+            } 
+          />
+          <Route 
+            path="/venta" 
+            element={
+            <RutaProtegida>
+              <Venta />
+            </RutaProtegida>
+            } 
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

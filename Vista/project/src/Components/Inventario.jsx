@@ -1,15 +1,7 @@
 import { useState, useMemo } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useProducts } from "../context/ProductContext";
 import "./Inventario.css";
-
-const PRODUCTOS_INICIALES = [
-  { id: 1, nombre: "Arroz x 500g",  categoria: "Granos",      codigoBarras: "770100001", precioCompra: 1800,  precioVenta: 2500,  stock: 120, stockMinimo: 20, descontinuado: false },
-  { id: 2, nombre: "Aceite 1L",     categoria: "Aceites",     codigoBarras: "770100002", precioCompra: 8500,  precioVenta: 12000, stock: 15,  stockMinimo: 10, descontinuado: false },
-  { id: 3, nombre: "Sal x 500g",    categoria: "Condimentos", codigoBarras: "770100003", precioCompra: 1200,  precioVenta: 1800,  stock: 4,   stockMinimo: 10, descontinuado: false },
-  { id: 4, nombre: "Gaseosa 1.5L",  categoria: "Bebidas",     codigoBarras: "770100004", precioCompra: 2800,  precioVenta: 3700,  stock: 48,  stockMinimo: 12, descontinuado: false },
-  { id: 5, nombre: "Leche 900ml",   categoria: "Lacteos",     codigoBarras: "770100005", precioCompra: 3200,  precioVenta: 4200,  stock: 22,  stockMinimo: 8,  descontinuado: false },
-  { id: 6, nombre: "Azucar x 1kg",  categoria: "Granos",      codigoBarras: "770100006", precioCompra: 2900,  precioVenta: 3800,  stock: 9,   stockMinimo: 15, descontinuado: false },
-];
 
 const CATEGORIAS = ["Granos", "Aceites", "Bebidas", "Lacteos", "Condimentos", "Aseo", "Otro"];
 
@@ -22,9 +14,9 @@ const fmt = (n) =>
   new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
 
 function getEstado(stock, min) {
-  if (stock === 0)     return { clase: "badge-canc",  texto: "Sin stock" };
-  if (stock < min)     return { clase: "badge-pend",  texto: "Bajo"      };
-  return                { clase: "badge-comp",  texto: "Normal"    };
+  if (stock === 0)  return { clase: "badge-canc", texto: "Sin stock" };
+  if (stock < min)  return { clase: "badge-pend", texto: "Bajo"      };
+  return             { clase: "badge-comp", texto: "Normal"    };
 }
 
 function Modal({ titulo, onClose, children }) {
@@ -43,7 +35,8 @@ function Modal({ titulo, onClose, children }) {
 
 export default function Inventario() {
   const { usuario } = useAuth();
-  const [productos, setProductos]         = useState(PRODUCTOS_INICIALES);
+  const { productos, agregarProducto, actualizarProducto } = useProducts();
+
   const [nextId, setNextId]               = useState(7);
   const [busqueda, setBusqueda]           = useState("");
   const [filtroCategoria, setFiltroCategoria] = useState("");
@@ -116,12 +109,12 @@ export default function Inventario() {
 
   const validar = () => {
     const errs = {};
-    if (!form.nombre.trim())                                          errs.nombre       = "El nombre es obligatorio.";
-    if (!form.codigoBarras.trim())                                    errs.codigoBarras = "El codigo es obligatorio.";
-    if (form.precioCompra === "" || Number(form.precioCompra) < 0)   errs.precioCompra = "Precio invalido.";
-    if (form.precioVenta  === "" || Number(form.precioVenta)  < 0)   errs.precioVenta  = "Precio invalido.";
-    if (form.stock        === "" || Number(form.stock)        < 0)   errs.stock        = "Stock invalido.";
-    if (form.stockMinimo  === "" || Number(form.stockMinimo)  < 0)   errs.stockMinimo  = "Minimo invalido.";
+    if (!form.nombre.trim())                                         errs.nombre       = "El nombre es obligatorio.";
+    if (!form.codigoBarras.trim())                                   errs.codigoBarras = "El codigo es obligatorio.";
+    if (form.precioCompra === "" || Number(form.precioCompra) < 0)  errs.precioCompra = "Precio invalido.";
+    if (form.precioVenta  === "" || Number(form.precioVenta)  < 0)  errs.precioVenta  = "Precio invalido.";
+    if (form.stock        === "" || Number(form.stock)        < 0)  errs.stock        = "Stock invalido.";
+    if (form.stockMinimo  === "" || Number(form.stockMinimo)  < 0)  errs.stockMinimo  = "Minimo invalido.";
     return errs;
   };
 
@@ -138,21 +131,21 @@ export default function Inventario() {
       stockMinimo:  Number(form.stockMinimo),
     };
     if (editId !== null) {
-      setProductos((prev) => prev.map((p) => (p.id === editId ? { ...p, ...datos } : p)));
+      actualizarProducto(editId, datos);
     } else {
-      setProductos((prev) => [...prev, { id: nextId, ...datos, descontinuado: false }]);
+      agregarProducto({ id: nextId, ...datos, descontinuado: false });
       setNextId((n) => n + 1);
     }
     cerrarModal();
   };
 
   const descontinuar = () => {
-    setProductos((prev) => prev.map((p) => p.id === modalDescont ? { ...p, descontinuado: true } : p));
+    actualizarProducto(modalDescont, { descontinuado: true });
     setModalDescont(null);
   };
 
   const reactivar = (id) => {
-    setProductos((prev) => prev.map((p) => p.id === id ? { ...p, descontinuado: false } : p));
+    actualizarProducto(id, { descontinuado: false });
   };
 
   return (

@@ -271,3 +271,81 @@
 .btn-guardar:hover {
   background: #333;
 }
+
+.modal-card-lg {
+  max-width: 600px;
+}
+
+.agregar-item-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.agregar-item-row select {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: sans-serif;
+}
+
+.agregar-item-row input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: sans-serif;
+  color: #1a1a1a;
+}
+
+.btn-agregar-item {
+  padding: 8px 14px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: sans-serif;
+}
+
+.btn-agregar-item:hover {
+  background: #333;
+}
+
+.btn-canc {
+  color: #A32D2D;
+  border-color: #f5c6c6;
+}
+
+.modal-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #e5e5e5;
+  margin-bottom: 4px;
+}
+
+.modal-total-label {
+  font-size: 14px;
+  color: #888;
+}
+
+.modal-total-val {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.compra-vacio {
+  text-align: center;
+  padding: 3rem 0;
+  color: #aaa;
+  font-size: 14px;
+}

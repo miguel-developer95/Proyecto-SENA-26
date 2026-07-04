@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const { usuario, logout } = useAuth();
@@ -8,6 +9,11 @@ function Dashboard() {
   const handleLogout = () => {
     logout();
     navigate("/");
+  const navigate = useNavigate();
+
+<button onClick={() => navigate("/administracion")}>
+  Ir a Administracion
+</button>
   };
 
   return (

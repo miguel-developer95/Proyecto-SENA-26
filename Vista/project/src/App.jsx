@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import Login from "./Components/Login";
 import Dashboard from "./Pages/Dashboard";
+import Administracion from "./Components/Administracion";
 
 function RutaProtegida({ children }) {
   const { usuario } = useAuth();
@@ -22,6 +23,14 @@ function App() {
               </RutaProtegida>
             }
           />
+          <Route
+            path="/administracion"
+            element={
+              <RutaProtegida>
+                <Administracion />
+              </RutaProtegida>
+            }
+          />  
         </Routes>
       </BrowserRouter>
     </AuthProvider>

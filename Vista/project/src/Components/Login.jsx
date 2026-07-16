@@ -47,7 +47,9 @@ function Login() {
       <div className="login-card">
 
         <div className="brand">
-          <div className="brand-icon">T</div>
+         <div className="brand-icon">
+  <img src="/logo.jpeg.jpeg" alt="Logo Tentaciones Marlly" className="logo-img" />
+</div>
           <span className="brand-name">Tentaciones Marlly</span>
         </div>
 

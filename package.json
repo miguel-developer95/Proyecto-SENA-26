@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "modules",
   "bugs": {
     "url": "https://github.com/miguel-developer95/Proyecto-SENA-26/issues"
   },
@@ -26,6 +26,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
     "typescript": "^7.0.2"
   }
 }

@@ -42,6 +42,7 @@ function Dashboard() {
   };
 
   return (
+<<<<<<< Updated upstream
     <div style={estilos.pagina}>
       <div style={estilos.header}>
         <div>
@@ -81,6 +82,13 @@ function Dashboard() {
           </div>
         ))}
       </div>
+=======
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <h1>Bienvenido al sistema Tentaciones Marlly</h1>
+      <p>Usuario: <strong>{usuario?.email}</strong></p>
+      <p>Rol: <strong>{usuario?.rol}</strong></p>
+      <button onClick={handleLogout}>Cerrar sesion</button>
+>>>>>>> Stashed changes
     </div>
   );
 }

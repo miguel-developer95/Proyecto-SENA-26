@@ -82,7 +82,7 @@ export default function Administracion() {
     <div className="admin-page">
       <div className="admin-header">
         <div>
-          <h1 className="admin-title">Administracion</h1>
+          <h1 className="admin-title">Administración</h1>
           <p className="admin-sub">Bienvenido, {usuario?.email}</p>
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function Administracion() {
         <div className="admin-section">
           <div className="metric-grid">
             <div className="metric-card">
-              <p className="metric-label">Mas vendido</p>
+              <p className="metric-label">Más vendido</p>
               <p className="metric-value">{datosRotacion[0].producto}</p>
               <p className="metric-sub">{datosRotacion[0].unidades} unidades</p>
             </div>
@@ -171,7 +171,7 @@ export default function Administracion() {
               <p className="metric-sub">{datosRotacion[datosRotacion.length - 1].unidades} unidades</p>
             </div>
             <div className="metric-card">
-              <p className="metric-label">Rotacion baja</p>
+              <p className="metric-label">Rotación baja</p>
               <p className="metric-value">{datosRotacion.filter((d) => d.rotacion === "Baja").length}</p>
               <p className="metric-sub">Productos</p>
             </div>

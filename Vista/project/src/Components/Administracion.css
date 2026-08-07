@@ -15,7 +15,7 @@
 .admin-title {
   font-size: 22px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #940000;
   margin-bottom: 4px;
 }
 
@@ -44,8 +44,8 @@
 }
 
 .admin-tab.active {
-  color: #1a1a1a;
-  border-bottom: 2px solid #1a1a1a;
+  color: #fafafa;
+  border-bottom: 2px solid #f1efef;
   font-weight: 500;
 }
 
@@ -80,7 +80,7 @@
 .metric-value {
   font-size: 22px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .metric-sub {
@@ -99,7 +99,7 @@
 .section-title {
   font-size: 15px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #faf7f7;
 }
 
 .filtro-select,
@@ -109,7 +109,7 @@
   border-radius: 6px;
   border: 1px solid #e0e0e0;
   background: #fff;
-  color: #1a1a1a;
+  color: #f5f1f1;
   cursor: pointer;
 }
 
@@ -131,7 +131,7 @@
 .admin-table td {
   padding: 10px 12px;
   border-bottom: 1px solid #f0f0f0;
-  color: #1a1a1a;
+  color: #fcf4f4;
 }
 
 .admin-table tr:last-child td {
@@ -190,7 +190,7 @@
 
 .barra-label {
   font-size: 13px;
-  color: #1a1a1a;
+  color: #eee9e9;
   width: 140px;
   flex-shrink: 0;
   white-space: nowrap;

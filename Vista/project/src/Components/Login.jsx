@@ -69,7 +69,7 @@ function Login() {
               type="email"
               id="email"
               name="email"
-              placeholder="correo@ejemplo.com"
+              placeholder="Correo@ejemplo.com"
               value={formData.email}
               onChange={handleChange}
               required
@@ -78,7 +78,7 @@ function Login() {
         </div>
 
         <div className="field">
-          <label htmlFor="password">Contrasena</label>
+          <label htmlFor="password">Contraseña</label>
           <div className="input-wrap">
             <input
               type="password"
